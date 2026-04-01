@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nuestra Filosofía - SCESA. Misión, Visión y Valores que guían cada proyecto de ingeniería eléctrica y automatización en Puebla, México.">
+  <meta name="theme-color" content="#000000">
+  <title>Nuestra Filosofía · SCESA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="shortcut icon" href="ico/favicon.ico">
+
+  <style>
+    /* ===== VARIABLES (idénticas al sitio principal) ===== */
+    :root {
+      --black: #000000;
+      --dark: #0a0a0a;
+      --card: #111111;
+      --border: #252830;
+      --accent: #00c8ff;
+      --accent-hover: #33d3ff;
+      --accent-dark: #0077ff;
+      --white: #f4f4f0;
+      --muted: #fafbfd;
+      --text: #fdfdfd;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding-top: 110px;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== BARRA DE PROGRESO ===== */
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 4px;
+      width: 0%;
+      background: var(--accent);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem clamp(1.5rem, 4vw, 3.75rem);
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      min-height: 100px;
+    }
+
+    .logo {
+      height: clamp(50px, 10vw, 80px);
+      width: auto;
+      transition: transform 0.2s ease;
+      position: relative;
+      z-index: 1100;
+    }
+    .logo:hover { transform: scale(1.02); }
+
+    /* ── Botón hamburguesa ── */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 8px;
+      position: relative;
+      z-index: 1100;
+      transition: border-color 0.3s ease;
+    }
+    .menu-toggle:hover { border-color: var(--accent); }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.35s ease, opacity 0.25s ease, width 0.3s ease;
+      transform-origin: center;
+    }
+
+    .menu-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; width: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .menu-toggle.open { border-color: var(--accent); }
+
+    /* ── Overlay ── */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 1050;
+      backdrop-filter: blur(3px);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .nav-overlay.active { display: block; opacity: 1; }
+
+    /* ── Panel lateral ── */
+    .nav-menu {
+      list-style: none;
+      position: fixed;
+      top: 0; right: -340px;
+      width: 320px;
+      height: 100vh;
+      background: #080a0d;
+      border-left: 1px solid var(--border);
+      z-index: 1080;
+      display: flex;
+      flex-direction: column;
+      padding: 120px 2.5rem 3rem;
+      gap: 0;
+      transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+    }
+    .nav-menu.active { right: 0; }
+
+    .nav-menu::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+    }
+
+    .nav-menu li {
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .nav-menu.active li { opacity: 1; transform: translateX(0); }
+    .nav-menu.active li:nth-child(1) { transition-delay: 0.05s; }
+    .nav-menu.active li:nth-child(2) { transition-delay: 0.10s; }
+    .nav-menu.active li:nth-child(3) { transition-delay: 0.15s; }
+    .nav-menu.active li:nth-child(4) { transition-delay: 0.20s; }
+    .nav-menu.active li:nth-child(5) { transition-delay: 0.25s; }
+    .nav-menu.active li:nth-child(6) { transition-delay: 0.30s; }
+    .nav-menu.active li:nth-child(7) { transition-delay: 0.35s; }
+    .nav-menu.active li:nth-child(8) { transition-delay: 0.40s; }
+
+    .nav-link {
+      display: block;
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 1.1rem 0;
+      transition: color 0.25s ease, padding-left 0.25s ease;
+    }
+    .nav-link:hover, .nav-link:focus { color: var(--accent); padding-left: 0.5rem; }
+    .nav-link.active { color: var(--accent); }
+
+    .btn-cta {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: var(--accent) !important;
+      color: #000 !important;
+      padding: 0.75rem 1.75rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 2px;
+      border-radius: 2px;
+      text-align: center;
+    }
+    .btn-cta:hover {
+      background: var(--accent-hover) !important;
+      padding-left: 1.75rem !important;
+    }
+
+    .nav-phone {
+      margin-top: auto;
+      padding-top: 2rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      border-bottom: none !important;
+    }
+    .nav-phone a {
+      display: block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 0.25rem;
+    }
+    .nav-phone a:hover { color: var(--accent-hover); }
+
+    /* ===== HERO FILOSOFÍA ===== */
+    .hero-filosofia {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem clamp(1.5rem, 6vw, 3.75rem) 5rem;
+      position: relative;
+      isolation: isolate;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-filosofia-bg {
+      position: absolute;
+      inset: 0; z-index: -2;
+      background:
+        radial-gradient(ellipse 55% 60% at 80% 30%, rgba(0,200,255,0.06) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(0,119,255,0.04) 0%, transparent 55%),
+        linear-gradient(160deg, #0d0f14 0%, #0a0a0a 100%);
+    }
+
+    .hero-filosofia-grid {
+      position: absolute;
+      inset: 0; z-index: -1;
+      opacity: 0.035;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* línea decorativa vertical izquierda */
+    .hero-filosofia::before {
+      content: '';
+      position: absolute;
+      left: clamp(1.5rem, 6vw, 3.75rem);
+      top: 3rem; bottom: 5rem;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+      opacity: 0.35;
+      z-index: 0;
+    }
+
+    .hero-filosofia-inner {
+      position: relative;
+      z-index: 1;
+      padding-left: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .page-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-eyebrow,
+      .page-title,
+      .page-subtitle {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+
+    .page-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px; height: 1px;
+      background: var(--accent);
+    }
+
+    .page-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 9vw, 9rem);
+      line-height: 0.9;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s forwards;
+    }
+
+    .page-title span { color: var(--accent); }
+
+    .page-subtitle {
+      max-width: 620px;
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+
+    /* ===== SECCIONES GENERALES ===== */
+    section {
+      padding: 5rem clamp(1.5rem, 6vw, 3.75rem);
+    }
+
+    .section-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.6875rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 30px; height: 5px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ===== REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== SECCIÓN MISIÓN ===== */
+    .mision {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mision-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .mision-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 6rem;
+        align-items: center;
+      }
+    }
+
+    .mision-text {
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    .mision-text strong { color: var(--white); font-weight: 500; }
+
+    .mision-highlight {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    .mision-highlight::before {
+      content: 'MISIÓN';
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 6rem;
+      color: rgba(0,200,255,0.05);
+      position: absolute;
+      top: -0.5rem; right: 1rem;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .mision-quote {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.5;
+      color: var(--white);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .mision-quote span { color: var(--accent); }
+
+    /* ===== SECCIÓN VISIÓN ===== */
+    .vision {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision-deco {
+      position: absolute;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(8rem, 18vw, 16rem);
+      color: rgba(0,200,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      z-index: 0;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 900px) {
+      .vision-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+    }
+
+    .vision-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .vision-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .vision-card:hover {
+      border-color: rgba(0,200,255,0.3);
+      transform: translateY(-4px);
+    }
+
+    .vision-card:hover::after { transform: scaleX(1); }
+
+    .vision-card-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: rgba(0,200,255,0.15);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .vision-card-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .vision-card-text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .vision-card-text strong { color: var(--white); font-weight: 500; }
+
+    .vision-statement {
+      margin-top: 3.5rem;
+      padding: 3rem 2.5rem;
+      background: linear-gradient(135deg, rgba(0,200,255,0.06) 0%, rgba(0,119,255,0.04) 100%);
+      border: 1px solid rgba(0,200,255,0.15);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vision-statement p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      line-height: 1.5;
+      color: var(--white);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .vision-statement p span { color: var(--accent); }
+
+    /* ===== SECCIÓN VALORES ===== */
+    .valores {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+    }
+
+    .valores-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+    }
+
+    @media (min-width: 600px) {
+      .valores-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .valores-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .valor-card {
+      background: var(--card);
+      padding: 2.75rem 2rem;
+      position: relative;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+
+    .valor-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .valor-card:hover { background: #13161c; }
+    .valor-card:hover::before { transform: scaleX(1); }
+
+    .valor-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: rgba(0,200,255,0.1);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .valor-card:hover .valor-num { color: rgba(0,200,255,0.2); }
+
+    .valor-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .valor-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .valor-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    /* ===== CTA FINAL ===== */
+    .cta-section {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 6rem clamp(1.5rem, 6vw, 3.75rem);
+    }
+
+    .cta-section .section-tag { justify-content: center; }
+    .cta-section .section-tag::before { display: none; }
+
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-title span { color: var(--accent); }
+
+    .cta-text {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2.25rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary { background: var(--accent); color: var(--black); }
+    .btn-primary:hover, .btn-primary:focus {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,200,255,0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover, .btn-outline:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 3.75rem clamp(1.5rem, 6vw, 3.75rem) 2.5rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .footer-brand p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 0.625rem;
+      max-width: 260px;
+      line-height: 1.6;
+    }
+
+    .footer-links h5 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.6875rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.125rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      padding-top: 1.875rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+      }
+    }
+
+    .footer-bottom p { font-size: 0.75rem; color: var(--muted); }
+    .footer-bottom span { color: var(--accent); }
+
+    /* ===== SKIP LINK ===== */
+    .skip-link {
+      position: absolute;
+      top: -40px; left: 0;
+      background: var(--accent);
+      color: var(--black);
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 1001;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ===== ANIMACIONES ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .page-eyebrow,
+      .page-title,
+      .page-subtitle {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Navbar -->
+  <nav class="navbar" aria-label="Navegación principal">
+    <a href="index.html">
+      <img src="img/logo@2x.png" alt="SCESA - Sistemas Integrales y Proyectos" class="logo">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Panel lateral -->
+  <ul class="nav-menu" id="navMenu" role="menu">
+    <li><a href="index.html#about"      class="nav-link">Nosotros</a></li>
+    <li><a href="index.html#servicios"  class="nav-link">Servicios</a></li>
+    <li><a href="index.html#clientes"   class="nav-link">Clientes</a></li>
+    <li><a href="index.html#compromiso" class="nav-link">Compromiso</a></li>
+    <li><a href="index.html#galeria"    class="nav-link">Proyectos</a></li>
+    <li><a href="index.html#videos"     class="nav-link">Videos</a></li>
+    <li><a href="filosofia.html"        class="nav-link active">Filosofía</a></li>
+    <li><a href="index.html#contacto"   class="nav-link btn-cta">Contacto</a></li>
+    <li class="nav-phone">Llámanos<a href="tel:5630544270">56 30 54 42 70</a></li>
+  </ul>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <div class="hero-filosofia">
+      <div class="hero-filosofia-bg"></div>
+      <div class="hero-filosofia-grid"></div>
+      <div class="hero-filosofia-inner">
+        <div class="page-eyebrow">SCESA · Sistemas Integrales y Proyectos</div>
+        <h1 class="page-title">Nuestra<br><span>Filosofía</span></h1>
+        <p class="page-subtitle">
+          Los principios que guían cada decisión técnica, cada proyecto ejecutado y cada compromiso adquirido con nuestros clientes.
+        </p>
+      </div>
+    </div>
+
+    <!-- MISIÓN -->
+    <section class="mision" id="mision" aria-label="Misión">
+      <div class="section-tag reveal">01 · Misión</div>
+      <h2 class="section-title reveal">POR QUÉ<br>EXISTIMOS</h2>
+
+      <div class="mision-grid">
+        <div class="mision-text reveal">
+          <p>
+            <strong>SCESA existe para elevar el estándar de ejecución</strong> en ingeniería eléctrica, seguridad electrónica y automatización industrial en México. Cada proyecto que tomamos es una oportunidad de demostrar que la precisión técnica y el compromiso con la normativa no son diferenciadores, sino <strong>el mínimo aceptable.</strong>
+          </p>
+          <br>
+          <p>
+            Brindamos soluciones integrales que <strong>garantizan la continuidad operativa</strong> de los activos de nuestros clientes, eliminando retrabajo, reduciendo costos ocultos y entregando infraestructura que funciona desde el primer día, con documentación técnica que lo respalda.
+          </p>
+          <br>
+          <p>
+            Operamos en los sectores industrial, educativo y de desarrollo urbano de Puebla y la región, con equipos especializados capaces de intervenir en proyectos de <strong>alta complejidad y entornos de alta exigencia.</strong>
+          </p>
+        </div>
+
+        <div class="mision-highlight reveal">
+          <p class="mision-quote">
+            Ejecutar proyectos de ingeniería eléctrica y automatización con <span>precisión técnica impecable</span>, cumplimiento normativo estricto y cero retrabajo — garantizando la continuidad y seguridad de los activos de nuestros clientes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIÓN -->
+    <section class="vision" id="vision" aria-label="Visión">
+      <div class="vision-deco" aria-hidden="true">2030</div>
+
+      <div class="section-tag reveal">02 · Visión</div>
+      <h2 class="section-title reveal">A DÓNDE<br>VAMOS</h2>
+
+      <div class="vision-grid">
+        <div class="vision-card reveal">
+          <div class="vision-card-year">2026</div>
+          <div class="vision-card-label">Hoy · Posición actual</div>
+          <p class="vision-card-text">
+            Referente técnico en Puebla con <strong>47+ proyectos certificados</strong> en sectores industrial, educativo y desarrollo urbano. Cero porcentaje de retrabajo en proyectos entregados.
+          </p>
+        </div>
+
+        <div class="vision-card reveal">
+          <div class="vision-card-year">2030</div>
+          <div class="vision-card-label">Meta · Expansión regional</div>
+          <p class="vision-card-text">
+            Consolidarnos como la empresa de ingeniería eléctrica e integración tecnológica de <strong>mayor reputación en el sureste de México</strong>, con presencia activa en Puebla, CDMX y Querétaro.
+          </p>
+        </div>
+      </div>
+
+      <div class="vision-statement reveal">
+        <p>
+          Ser la empresa que los mejores clientes buscan cuando no pueden permitirse el lujo de <span>un segundo intento.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- VALORES -->
+    <section class="valores" id="valores" aria-label="Valores">
+      <div class="section-tag reveal">03 · Valores</div>
+      <h2 class="section-title reveal">LO QUE NOS<br>DEFINE</h2>
+
+      <div class="valores-grid">
+
+        <div class="valor-card reveal">
+          <div class="valor-num">01</div>
+          <div class="valor-icon">🎯</div>
+          <h3 class="valor-title">Precisión Técnica</h3>
+          <p class="valor-desc">Cada intervención es planificada con ingeniería de detalle. No improvisamos. Cada cable, cada conexión, cada configuración responde a un criterio técnico documentado.</p>
+        </div>
+
+        <div class="valor-card reveal">
+          <div class="valor-num">02</div>
+          <div class="valor-icon">📋</div>
+          <h3 class="valor-title">Cumplimiento Normativo</h3>
+          <p class="valor-desc">Operamos bajo normas NOM nacionales e internacionales. El cumplimiento no es opcional ni negociable — es la base sobre la que construimos cada proyecto.</p>
+        </div>
+
+        <div class="valor-card reveal">
+          <div class="valor-num">03</div>
+          <div class="valor-icon">🤝</div>
+          <h3 class="valor-title">Compromiso Real</h3>
+          <p class="valor-desc">Entregamos en los tiempos que prometemos. Nuestros cronogramas son reales y ejecutables, porque entendemos que la pausa operativa tiene un costo directo para el cliente.</p>
+        </div>
+
+        <div class="valor-card reveal">
+          <div class="valor-num">04</div>
+          <div class="valor-icon">🔬</div>
+          <h3 class="valor-title">Mejora Continua</h3>
+          <p class="valor-desc">Adoptamos nuevas tecnologías y metodologías antes que la industria las exija. La especialización permanente es nuestra ventaja competitiva más duradera.</p>
+        </div>
+
+        <div class="valor-card reveal">
+          <div class="valor-num">05</div>
+          <div class="valor-icon">🛡️</div>
+          <h3 class="valor-title">Integridad</h3>
+          <p class="valor-desc">Transparencia total en presupuestos, avances y entregables. Sin costos ocultos, sin sorpresas. Lo que cotizamos es lo que entregamos, con documentación que lo acredita.</p>
+        </div>
+
+        <div class="valor-card reveal">
+          <div class="valor-num">06</div>
+          <div class="valor-icon">⚡</div>
+          <h3 class="valor-title">Excelencia Operativa</h3>
+          <p class="valor-desc">El retrabajo es inaceptable. Cada instalación se valida antes de entregarse. La excelencia no es un objetivo, es el estándar mínimo que nos imponemos en cada proyecto.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-label="Llamada a la acción">
+      <div class="section-tag reveal">¿Listo para trabajar?</div>
+      <h2 class="cta-title reveal">UN PROYECTO.<br><span>SIN RETRABAJO.</span></h2>
+      <p class="cta-text reveal">
+        Nuestros principios se demuestran en la ejecución. Contáctenos para un levantamiento técnico formal sin costo.
+      </p>
+      <div class="cta-btns reveal">
+        <a href="index.html#contacto" class="btn btn-primary">Solicitar Levantamiento</a>
+        <a href="index.html#servicios" class="btn btn-outline">Ver Servicios</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo@2x.png" alt="SCESA" class="logo" style="margin-bottom:0.9375rem;">
+        <p>Sistemas Integrales y Proyectos. Ingeniería de alto estándar para sectores industriales, comerciales y residenciales.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="index.html#about">Nosotros</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="index.html#clientes">Clientes</a></li>
+          <li><a href="index.html#compromiso">Compromiso</a></li>
+          <li><a href="filosofia.html">Nuestra Filosofía</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="index.html#servicios">Ingeniería Eléctrica</a></li>
+          <li><a href="index.html#servicios">Seguridad Electrónica</a></li>
+          <li><a href="index.html#servicios">Conectividad</a></li>
+          <li><a href="index.html#servicios">Infraestructura</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="tel:5630544270">56 30 54 42 70</a></li>
+          <li><a href="index.html#contacto">Puebla, Puebla</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>SCESA</span> Sistemas Integrales y Proyectos. Todos los derechos reservados.</p>
+      <p>Puebla, México</p>
+    </div>
+  </footer>
+
+  <script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('progressBar');
+      if (!bar) return;
+      const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      bar.style.width = scrolled + '%';
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Menú hamburguesa
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu    = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function openMenu() {
+      navMenu.classList.add('active');
+      navOverlay.classList.add('active');
+      menuToggle.classList.add('open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      navMenu.classList.remove('active');
+      navOverlay.classList.remove('active');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.contains('active') ? closeMenu() : openMenu();
+      });
+    }
+
+    if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  </script>
+
+</body>
+</html>

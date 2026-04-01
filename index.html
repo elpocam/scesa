@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SINPRO - Sistemas Integrales y Proyectos. Ingeniería de alto estándar en sistemas eléctricos, seguridad electrónica y automatización industrial en Puebla, México.">
+  <meta name="theme-color" content="#000000">
+  <title>S.C.E.S.A</title> 
+  
+  <!-- Preconnect para fuentes y optimización -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fuentes optimizadas -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+
+<!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    
+	<!-- Favicons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">	
+    <link rel="apple-touch-icon" href="ico/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="ico/apple-touch-icon-144.png">
+ 
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <!-- Skip to content link para accesibilidad -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Navegación -->
+  <nav class="navbar" aria-label="Navegación principal">
+    <a href="index.html">
+      <img src="img/logo@2x.png" alt="SCESA - Sistemas Integrales y Proyectos" class="logo">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Panel lateral -->
+  <ul class="nav-menu" id="navMenu" role="menu">
+    <li><a href="#about"        class="nav-link">Nosotros</a></li>
+    <li><a href="#servicios"    class="nav-link">Servicios</a></li>
+    <li><a href="#clientes"     class="nav-link">Clientes</a></li>
+    <li><a href="#compromiso"   class="nav-link">Compromiso</a></li>
+    <li><a href="#galeria"      class="nav-link">Proyectos</a></li>
+    <li><a href="#videos"       class="nav-link">Videos</a></li>
+    <li><a href="filosofia.html" class="nav-link">Filosofía</a></li>
+    <li><a href="#contacto"     class="nav-link btn-cta">Contacto</a></li>
+    <li class="nav-phone">Llámanos<a href="tel:5630544270">56 30 54 42 70</a></li>
+  </ul>
+
+  <!-- Hero Section -->
+  <main id="main-content">
+    <section id="hero" class="hero" aria-label="Presentación">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-tag">Ingeniería de Alto Estándar · Puebla, México</div>
+      <h1 class="hero-title">
+        Sistemas de control<br>
+        Electrónica, seguridad <br>
+        <span class="highlight">y automatización</span>
+      </h1>
+      <p class="hero-sub">
+        Ingeniería de detalle, ejecución y mantenimiento de sistemas críticos para los sectores industrial, comercial y residencial de alta gama.
+      </p>
+      <div class="hero-actions">
+        <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+        <a href="#contacto" class="btn btn-outline">Solicitar Propuesta</a>
+      </div>
+      <div class="hero-stats" aria-label="Estadísticas de la empresa">
+        <div class="stat">
+          <div class="stat-number">47<span>+</span></div>
+          <div class="stat-label">Proyectos Certificados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">5<span>+</span></div>
+          <div class="stat-label">Sectores Atendidos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">0<span>%</span></div>
+          <div class="stat-label">Retrabajo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" aria-label="Quiénes somos">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-tag reveal">Quiénes Somos</div>
+          <h2 class="section-title reveal">ESTÁNDAR<br>SUPERIOR DE<br>EJECUCIÓN</h2>
+          <p class="reveal">
+            <strong>SCESA</strong> surge de la necesidad de ofrecer proyectos bajo un estándar de ejecución superior, donde la <strong>precisión técnica</strong> y el estricto cumplimiento de normatividad no son opcionales, sino la base de cada intervención.
+          </p>
+          <p class="reveal">
+            Integramos ecosistemas tecnológicos que garantizan la <strong>seguridad y eficiencia</strong> de sus activos, operando con equipos especializados en proyectos de alta complejidad para clientes de los sectores industrial, educativo y de desarrollo urbano.
+          </p>
+          <p class="reveal" style="color: var(--accent); font-family: 'Barlow Condensed', sans-serif; font-size: 1.50rem; letter-spacing: 1px; margin-top: .5rem;">
+            Puebla, Puebla &nbsp;|&nbsp; Tel. 56 30 54 42 70
+          </p>
+        </div>
+        <div class="about-features reveal">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Potencia</h3>
+            <p class="feature-desc">Media y baja tensión, subestaciones y tableros de control.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3 class="feature-title">Seguridad</h3>
+            <p class="feature-desc">CCTV, control de accesos y sistemas contra incendio.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <h3 class="feature-title">Conectividad</h3>
+            <p class="feature-desc">Fibra óptica, redes de voz y datos, automatización.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏗️</div>
+            <h3 class="feature-title">Infraestructura</h3>
+            <p class="feature-desc">Canalización técnica y peinado de cableado profesional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" aria-label="Servicios">
+      <div class="section-tag reveal">Especialidades</div>
+      <h2 class="section-title reveal">ÁREAS DE<br>ESPECIALIZACIÓN</h2>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-number">01</div>
+          <h3 class="service-title">Ingeniería Eléctrica de Potencia</h3>
+          <img src="slider/mujer.png" alt="La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados" width="400" height="341" />
+               
+          <p class="service-desc">Diseño y ejecución de instalaciones en media y baja tensión, gestión integral de subestaciones y tableros generales de control con cumplimiento total de normativa NOM tanto materiales como proyectos terminados con estándares nacionales y internacionales. (insumos y proyecyos terminados)</p>
+          <div class="service-tags">
+            <span class="service-tag">Media Tensión</span>
+            <span class="service-tag">Baja Tensión</span>
+            <span class="service-tag">Subestaciones</span>
+            <span class="service-tag">Tableros</span>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-number">02</div>
+          <h3 class="service-title">Seguridad Electrónica y Gestión de Riesgos</h3>
+          <img src="slider/rostro.png" alt="La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados" width="400" height="341" />
+          <p class="service-desc">Implementación de sistemas inteligentes de CCTV, control de accesos automatizados ó biometricos, redes certificadas de detección  contra incendio para entornos de alta seguridad.</p>
+          <div class="service-tags">
+            <span class="service-tag">CCTV</span>
+            <span class="service-tag">Control de Accesos</span>
+            <span class="service-tag">Detección Incendio</span>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-number">03</div>
+          <h3 class="service-title">Conectividad y Automatización Industrial</h3>
+          <img src="slider/red.png" alt="La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados" width="400" height="341" />
+          <p class="service-desc">Despliegue de infraestructura de fibra óptica, redes de voz y datos, sistemas de automatización industrial para la optimización de procesos productivos.</p>
+          <div class="service-tags">
+            <span class="service-tag">Fibra Óptica</span>
+            <span class="service-tag">Redes LAN/WAN</span>
+            <span class="service-tag">Automatización</span>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-number">04</div>
+          <h3 class="service-title">Infraestructura Física y Canalización</h3>
+          <img src="slider/cables.png" alt="La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados" width="400" height="341" />
+          <p class="service-desc">Especialistas en canalización técnica con tubería conduit,  técnicas avanzadas de peinado de cableado garantizando un mantenimiento simplificado y una estética profesional.</p>
+          <div class="service-tags">
+            <span class="service-tag">Conduit</span>
+            <span class="service-tag">Peinado de Cable</span>
+            <span class="service-tag">Charolas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clientes Section -->
+    <section id="clientes" class="clients" aria-label="Clientes">
+      <div class="clients-header">
+        <div>
+          <div class="section-tag reveal">Casos de Éxito</div>
+          <h2 class="section-title reveal">CONFIANZA<br>EMPRESARIAL</h2>
+        </div>
+        <div class="reveal">
+          <p>Nuestra capacidad operativa ha sido puesta a prueba en entornos de alta exigencia, estableciendo relaciones sólidas con aliados estratégicos en múltiples sectores. Cada proyecto es una demostración de nuestro compromiso con la calidad y la excelencia técnica.</p>
+        </div>
+      </div>
+      <div class="clients-grid">
+        <div class="client-card reveal">
+          <div class="client-sector">Sector Industrial</div>
+          <h3 class="client-name">Refresco RG</h3>
+          <p>Cliente principal con gestión integral de sistemas eléctricos y de automatización en planta de producción de alta demanda en condiciones extremas.</p>
+        </div>
+        <div class="client-card reveal">
+          <div class="client-sector">Sector Industrial</div>
+          <h3 class="client-name">Materiales de la Nueva Era</h3>
+          <p>Implementación de infraestructura eléctrica de potencia y sistemas de seguridad para instalaciones industriales.</p>
+        </div>
+        <div class="client-card reveal">
+          <div class="client-sector">Sector Educativo</div>
+          <h3 class="client-name">Universidad UNID</h3>
+          <p>Campus Atlixco – Instalación de infraestructura de conectividad, redes de datos y sistemas de seguridad electrónica.</p>
+        </div>
+        <div class="client-card reveal">
+          <div class="client-sector">Sector Educativo</div>
+          <h3 class="client-name">Harmon Hall</h3>
+          <p>Proyectos de canalización técnica y sistemas de red certificados para centros de idiomas en Puebla.</p>
+        </div>
+        <div class="client-card reveal">
+          <div class="client-sector">Sector Educativo</div>
+          <h3 class="client-name">Liceo Serdán</h3>
+          <p>Mantenimiento y actualización de sistemas eléctricos e infraestructura tecnológica en instalaciones educativas.</p>
+        </div>
+        <div class="client-card reveal">
+          <div class="client-sector">Desarrollo Urbano</div>
+          <h3 class="client-name">Lomas de Angelópolis & Cluster Querétaro</h3>
+          <p>Gestión e instalación de 47 luminarias certificadas y sistemas de soporte en proyectos de desarrollo urbano de gran escala.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compromiso Section -->
+    <section id="compromiso" class="compromiso" aria-label="Compromiso">
+      <div class="compromiso-bg"></div>
+      <div class="compromiso-grid">
+        <div>
+          <div class="section-tag reveal">Nuestra Filosofía</div>
+          <h2 class="section-title reveal">EL COMPROMISO<br>SCESA</h2>
+          <div class="promise-list">
+            <div class="promise-item reveal">
+              <div class="promise-icon" aria-hidden="true">🎯</div>
+              <div>
+                <h3 class="promise-title">Entrega Impecable desde el Primer Intento</h3>
+                <p class="promise-text">Eliminamos costos ocultos por re-trabajos. Cada intervención es planificada con ingeniería de detalle para garantizar resultados definitivos.</p>
+              </div>
+            </div>
+            <div class="promise-item reveal">
+              <div class="promise-icon" aria-hidden="true">📋</div>
+              <div>
+                <h3 class="promise-title">Cumplimiento Normativo Estricto</h3>
+                <p class="promise-text">La precisión técnica y el apego a normativas no son opcionales. Son la base de cada uno de nuestros proyectos sin excepción.</p>
+              </div>
+            </div>
+            <div class="promise-item reveal">
+              <div class="promise-icon" aria-hidden="true">⏱️</div>
+              <div>
+                <h3 class="promise-title">Tiempos de Entrega Reales</h3>
+                <p class="promise-text">Nos comprometemos con cronogramas reales y ejecutables. Sus activos no pueden estar en pausa más tiempo del necesario.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="quote-card reveal">
+          <div class="big-quote" aria-hidden="true">"</div>
+          <p class="quote-text">
+            Entendemos que la infraestructura de su empresa es el motor de su productividad. Por ello, nuestro enfoque se centra en la entrega técnica impecable, eliminando costos ocultos por re-trabajos y garantizando tiempos de entrega reales Asegurando la continuidad de negocios.
+          </p>
+          <div class="quote-author">— Dirección de Proyectos · SCESA </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" aria-label="Contacto">
+      <div class="contact-grid">
+        <div>
+          <div class="section-tag reveal">Contacto</div>
+          <h2 class="section-title reveal">SOLICITE SU<br>LEVANTAMIENTO<br>TÉCNICO</h2>
+          <div class="contact-info">
+            <div class="contact-item reveal">
+              <div class="contact-icon" aria-hidden="true">📍</div>
+              <div>
+                <div class="contact-label">Ubicación</div>
+                <div class="contact-value">Puebla, Puebla, México</div>
+              </div>
+            </div>
+            <div class="contact-item reveal">
+              <div class="contact-icon" aria-hidden="true">📞</div>
+              <div>
+                <div class="contact-label">Teléfono</div>
+                <div class="contact-value">56 30 54 42 70</div>
+              </div>
+            </div>
+            <div class="contact-item reveal">
+              <div class="contact-icon" aria-hidden="true">🏢</div>
+              <div>
+                <div class="contact-label">Empresa</div>
+                <div class="contact-value">SCESA  – Sistemas Integrales y Proyectos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="reveal" style="font-size: 1.175rem; color: var(--white); line-height: 1.7; margin-bottom: 0.5rem; margin-top: 2.5rem;">
+            Compártanos los detalles de su proyecto. Nuestro equipo técnico se pondrá en contacto para realizar un levantamiento formal sin costo.
+          </p>
+          <div class="contact-form reveal">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" id="nombre" class="form-input" placeholder="Su nombre completo" required>
+              </div>
+              <div class="form-group">
+                <label for="empresa" class="form-label">Empresa</label>
+                <input type="text" id="empresa" class="form-input" placeholder="Nombre de la empresa">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" id="telefono" class="form-input" placeholder="+52 222 000 0000" required>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-input" placeholder="correo@empresa.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="servicio" class="form-label">Servicio de Interés</label>
+              <select id="servicio" class="form-select">
+                <option value="">Seleccionar área...</option>
+                <option>Ingeniería Eléctrica de Potencia</option>
+                <option>Seguridad Electrónica y CCTV</option>
+                <option>Conectividad y Automatización</option>
+                <option>Infraestructura Física</option>
+                <option>Proyecto Integral</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensaje" class="form-label">Descripción del Proyecto</label>
+              <textarea id="mensaje" class="form-textarea" placeholder="Cuéntenos brevemente sobre sus requerimientos actuales..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="handleSubmit(event)">Enviar Solicitud</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Galería de Proyectos -->
+    <section id="galeria" class="galeria">
+      <div class="section-tag reveal">Proyectos</div>
+      <h2 class="section-title reveal">PROYECTOS EXITOSOS</h2>
+
+      <div class="gallery-carousel">
+        <div class="gallery-track">
+          <img src="slider/camaras.png" alt="Proyecto - Cámaras de seguridad" width="320" height="200">
+          <img src="slider/puerta.png" alt="Proyecto - Control de acceso" width="320" height="200">
+          <img src="slider/teles.png" alt="Proyecto - Instalación eléctrica" width="320" height="200">
+          <img src="slider/luz.png" alt="Proyecto - Iluminación" width="320" height="200">
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" aria-label="Imagen anterior">&#8592;</button>
+        <button class="carousel-btn" id="nextBtn" aria-label="Imagen siguiente">&#8594;</button>
+      </div>
+    </section>
+
+    <!-- Videos -->
+    <section id="videos" class="videos">
+      <div class="section-tag reveal">Multimedia</div>
+      <h2 class="section-title reveal">VIDEOS DE PROYECTOS</h2>
+
+      <div class="video-grid">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Video de proyecto 1" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Video de proyecto 2" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo@2x.png" alt="SCESA " class="logo" style="margin-bottom: 0.9375rem;">
+        <p>Sistemas Integrales y Proyectos. Ingeniería de alto estándar para sectores industriales, comerciales y residenciales.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#compromiso">Compromiso</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#servicios">Ingeniería Eléctrica</a></li>
+          <li><a href="#servicios">Seguridad Electrónica</a></li>
+          <li><a href="#servicios">Conectividad</a></li>
+          <li><a href="#servicios">Infraestructura</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="tel:5630544270">56 30 54 42 70</a></li>
+          <li><a href="#">Puebla, Puebla</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>SCESA </span> Sistemas Integrales y Proyectos. Todos los derechos reservados.</p>
+      <p>Puebla, México</p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada de imagen">
+    <span class="lightbox-close" role="button" aria-label="Cerrar">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" alt="">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
