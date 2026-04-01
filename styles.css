@@ -285,7 +285,7 @@ img {
 
 .hero-tag {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.990rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--accent);
@@ -853,14 +853,14 @@ section {
 .contact-label {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.6875rem;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.25rem;
 }
 
 .contact-value {
-  font-size: 1.93rem;
+  font-size: 1.0rem;
   color: var(--white);
   font-weight: 400;
 }
@@ -1268,7 +1268,7 @@ section {
 
 .slider-label {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.995rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--accent);
@@ -1422,6 +1422,7 @@ section {
     width: 72vw;
     height: 44vw;
   }
+  }
 
 /* ========================================
    CURSOS SECTION
@@ -1514,29 +1515,30 @@ section {
   margin-top: 3rem;
 }
 
+/* ========================================
+   BOTÓN CURSOS - ESTILO FINAL
+   ======================================== */
+
 .btn-cursos {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  padding: 0.875rem 2rem;
+  border: 2px solid #00c8ff;
+  color: #00c8ff;
+  padding: 12px 32px;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  border-radius: 40px;
+  transition: 0.3s;
 }
 
 .btn-cursos:hover {
-  background: var(--accent);
-  color: var(--black);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 200, 255, 0.25);
+  background: #00c8ff;
+  color: #000;
+  box-shadow: 0 0 15px #00c8ff;
 }
 
 }
