@@ -26,7 +26,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="ico/apple-touch-icon-72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="ico/apple-touch-icon-114.png">
     <link rel="apple-touch-icon" sizes="144x144" href="ico/apple-touch-icon-144.png">
- 
+
 </head>
 <body>
   <div class="progress-bar" id="progressBar"></div>
@@ -58,7 +58,59 @@
     <li><a href="#contacto"     class="nav-link btn-cta">Contacto</a></li>
     <li class="nav-phone">Llámanos<a href="tel:5630544270">56 30 54 42 70</a></li>
   </ul>
+ <!-- ===== CARRUSEL DE SERVICIOS ===== -->
+    <section class="services-slider" aria-label="Galería de servicios">
 
+      <div class="slider-header">
+        <span class="slider-label">Nuestros Servicios</span>
+        <div class="slider-controls">
+          <button class="slider-btn" id="sliderPrev" aria-label="Anterior">&#8592;</button>
+          <div class="slider-dots" id="sliderDots"></div>
+          <button class="slider-btn" id="sliderNext" aria-label="Siguiente">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="slider-viewport" id="sliderViewport">
+        <div class="slider-track" id="sliderTrack">
+
+          <!-- Agrega aquí tus imágenes nuevas con este formato: -->
+          <!-- <div class="slide"><img src="img/TU-IMAGEN.jpg" alt="Descripción"></div> -->
+
+          <div class="slide">
+            <img src="slider/camaras.png" alt="Sistemas de videovigilancia CCTV">
+            <div class="slide-overlay"><span>CCTV &amp; Videovigilancia</span></div>
+          </div>
+          <div class="slide">
+            <img src="slider/puerta.png" alt="Control de accesos">
+            <div class="slide-overlay"><span>Control de Accesos</span></div>
+          </div>
+          <div class="slide">
+            <img src="slider/teles.png" alt="Instalaciones eléctricas">
+            <div class="slide-overlay"><span>Ingeniería Eléctrica</span></div>
+          </div>
+          <div class="slide">
+            <img src="slider/luz.png" alt="Iluminación técnica">
+            <div class="slide-overlay"><span>Iluminación Técnica</span></div>
+          </div>
+          <div class="slide">
+            <img src="slider/mujer.png" alt="Ingeniería eléctrica de potencia">
+            <div class="slide-overlay"><span>Ingeniería de Potencia</span></div>
+          </div>
+          <div class="slide">
+            <img src="slider/red.png" alt="Redes y conectividad">
+            <div class="slide-overlay"><span>Redes &amp; Conectividad</span></div>
+          </div>
+          <div class="slide">
+            <img src="slider/cables.png" alt="Canalización e infraestructura">
+            <div class="slide-overlay"><span>Canalización Técnica</span></div>
+          </div>
+          <div class="slide">
+            <img src="slider/rostro.png" alt="Seguridad electrónica">
+            <div class="slide-overlay"><span>Seguridad Electrónica</span></div>
+          </div>
+
+        </div>
+      </div>
   <!-- Hero Section -->
   <main id="main-content">
     <section id="hero" class="hero" aria-label="Presentación">
@@ -91,6 +143,15 @@
           <div class="stat-label">Retrabajo</div>
         </div>
       </div>
+    </section>
+
+   
+
+      <!-- Barra de progreso del slide -->
+      <div class="slider-progress-wrap">
+        <div class="slider-progress-bar" id="sliderProgressBar"></div>
+      </div>
+
     </section>
 
     <!-- About Section -->
@@ -349,25 +410,75 @@
         </div>
       </div>
     </section>
-    <!-- Galería de Proyectos -->
-    <section id="galeria" class="galeria">
-      <div class="section-tag reveal">Proyectos</div>
-      <h2 class="section-title reveal">PROYECTOS EXITOSOS</h2>
+  
+    <!-- Catálogo de Cursos -->
+<section id="cursos" class="cursos" aria-label="Catálogo de Cursos">
+  <div class="section-tag reveal">Capacitación</div>
+  <h2 class="section-title reveal">CURSOS<br>ESPECIALIZADOS</h2>
 
-      <div class="gallery-carousel">
-        <div class="gallery-track">
-          <img src="slider/camaras.png" alt="Proyecto - Cámaras de seguridad" width="320" height="200">
-          <img src="slider/puerta.png" alt="Proyecto - Control de acceso" width="320" height="200">
-          <img src="slider/teles.png" alt="Proyecto - Instalación eléctrica" width="320" height="200">
-          <img src="slider/luz.png" alt="Proyecto - Iluminación" width="320" height="200">
-        </div>
+  <div class="cursos-grid">
+    <div class="curso-card reveal">
+      <h3>Mantenimiento Eléctrico IRC5</h3>
+      <p>Resolución de fallas eléctricas, de sistema y funcionamiento del robot.</p>
+      <div class="curso-tags">
+        <span>ABB</span>
+        <span>IRC5</span>
       </div>
+    </div>
 
-      <div class="carousel-controls">
-        <button class="carousel-btn" id="prevBtn" aria-label="Imagen anterior">&#8592;</button>
-        <button class="carousel-btn" id="nextBtn" aria-label="Imagen siguiente">&#8594;</button>
+    <div class="curso-card reveal">
+      <h3>Curso Eléctrico IRC5</h3>
+      <p>Arquitectura del controlador IRC5, instalación y modificación de RobotWare.</p>
+      <div class="curso-tags">
+        <span>ABB</span>
+        <span>RobotWare</span>
       </div>
-    </section>
+    </div>
+
+    <div class="curso-card reveal">
+      <h3>Fundamentos de Automatización</h3>
+      <p>Neumática, control eléctrico, PLC Siemens y robótica ABB IRC5.</p>
+      <div class="curso-tags">
+        <span>PLC</span>
+        <span>SIEMENS</span>
+        <span>Neumática</span>
+      </div>
+    </div>
+
+    <div class="curso-card reveal">
+      <h3>Programación Avanzada IRC5</h3>
+      <p>Interrupciones, búsqueda, Error Handler, World Zones y RobotStudio.</p>
+      <div class="curso-tags">
+        <span>ABB</span>
+        <span>RobotStudio</span>
+      </div>
+    </div>
+
+    <div class="curso-card reveal">
+      <h3>Mantenimiento Mecánico IRB</h3>
+      <p>Lubricación, retiro/instalación de ejes 1-6 y calibración fina.</p>
+      <div class="curso-tags">
+        <span>ABB</span>
+        <span>IRB</span>
+      </div>
+    </div>
+
+    <div class="curso-card reveal">
+      <h3>RobotStudio 5 Básico</h3>
+      <p>Simulación, creación de trayectorias, TCP y sincronización con robot físico.</p>
+      <div class="curso-tags">
+        <span>RobotStudio</span>
+        <span>Simulación</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cursos-download reveal">
+    <a href="Catalogo/Catalogo_Cursos_W&C-1.pdf" class="btn-cursos" download>
+      📥 DESCARGAR CATÁLOGO COMPLETO
+    </a>
+  </div>
+</section>
 
     <!-- Videos -->
     <section id="videos" class="videos">

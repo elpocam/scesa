@@ -157,3 +157,119 @@ function closeLightbox() {
 if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
 window.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+
+// ================= CARRUSEL DE SERVICIOS (HERO) =================
+(function () {
+  const track    = document.getElementById('sliderTrack');
+  const viewport = document.getElementById('sliderViewport');
+  const dotsWrap = document.getElementById('sliderDots');
+  const prevBtn  = document.getElementById('sliderPrev');
+  const nextBtn  = document.getElementById('sliderNext');
+  const progBar  = document.getElementById('sliderProgressBar');
+
+  if (!track || !viewport) return;
+
+  const slides   = Array.from(track.querySelectorAll('.slide'));
+  const PAUSE    = 4000;   // ms entre slides
+  const GAP      = 12;     // px — debe coincidir con el gap del CSS
+
+  let current    = 0;
+  let timer      = null;
+  let progTimer  = null;
+  let startX     = 0;
+  let isDragging = false;
+
+  /* ── Calcular cuántos slides caben en pantalla ── */
+  function visibleCount() {
+    const vw = viewport.offsetWidth;
+    const sw = slides[0] ? slides[0].offsetWidth + GAP : 300;
+    return Math.max(1, Math.floor(vw / sw));
+  }
+
+  function maxIndex() {
+    return Math.max(0, slides.length - visibleCount());
+  }
+
+  /* ── Crear dots ── */
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    const total = maxIndex() + 1;
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Ir al slide ' + (i + 1));
+      dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    dotsWrap.querySelectorAll('.slider-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+    });
+  }
+
+  /* ── Mover el track ── */
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, maxIndex()));
+    const slideW = slides[0] ? slides[0].offsetWidth + GAP : 300;
+    track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
+    updateDots();
+  }
+
+  /* ── Barra de progreso animada ── */
+  function startProgress() {
+    if (progBar) {
+      progBar.style.transition = 'none';
+      progBar.style.width = '0%';
+      // Fuerza reflow para que la transición arranque desde 0
+      void progBar.offsetWidth;
+      progBar.style.transition = 'width ' + PAUSE + 'ms linear';
+      progBar.style.width = '100%';
+    }
+  }
+
+  /* ── Auto-avance ── */
+  function resetTimer() {
+    clearInterval(timer);
+    clearTimeout(progTimer);
+    startProgress();
+    timer = setInterval(() => {
+      goTo(current >= maxIndex() ? 0 : current + 1);
+      startProgress();
+    }, PAUSE);
+  }
+
+  /* ── Botones ── */
+  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+
+  /* ── Swipe táctil y drag con mouse ── */
+  viewport.addEventListener('mousedown',  e => { isDragging = true;  startX = e.clientX; });
+  viewport.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+
+  viewport.addEventListener('mouseup', e => {
+    if (!isDragging) return;
+    isDragging = false;
+    const diff = startX - e.clientX;
+    if (Math.abs(diff) > 50) { goTo(diff > 0 ? current + 1 : current - 1); resetTimer(); }
+  });
+
+  viewport.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { goTo(diff > 0 ? current + 1 : current - 1); resetTimer(); }
+  });
+
+  /* ── Pausa al hover ── */
+  viewport.addEventListener('mouseenter', () => { clearInterval(timer); if (progBar) progBar.style.animationPlayState = 'paused'; });
+  viewport.addEventListener('mouseleave', () => resetTimer());
+
+  /* ── Recalcular al cambiar tamaño ── */
+  window.addEventListener('resize', () => { buildDots(); goTo(current); });
+
+  /* ── Arrancar ── */
+  buildDots();
+  goTo(0);
+  resetTimer();
+})();
