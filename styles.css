@@ -573,18 +573,21 @@ section {
   transform: scaleY(1);
 }
 
+/* Efecto neón para números de servicios */
 .service-number {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 4.5rem;
   color: var(--accent);
   line-height: 1;
   margin-bottom: -0.625rem;
-  transition: color 0.3s ease;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .service-card:hover .service-number {
-  color: rgba(243, 244, 245, 0.12);
+  text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+  transform: scale(1.05);
 }
+
 
 .service-title {
   font-family: 'Barlow Condensed', sans-serif;
@@ -727,7 +730,7 @@ section {
   gap: 1.75rem;
 }
 
-.promise-item {
+ -item {
   display: flex;
   gap: 1.25rem;
   align-items: flex-start;
@@ -750,6 +753,17 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
+}
+
+/* Efecto neón para números en compromiso */
+.promise-item:hover .stat-number,
+.compromiso .stat-number {
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.promise-item:hover .stat-number {
+  text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+  transform: scale(1.05);
 }
 
 .promise-title {
@@ -822,6 +836,13 @@ section {
     gap: 5rem;
   }
 }
+
+/* Efecto neón para números de contacto */
+.contact-item:hover .contact-value {
+  text-shadow: 0 0 8px var(--accent);
+  transition: text-shadow 0.3s ease;
+}
+
 
 .contact-info {
   display: flex;
