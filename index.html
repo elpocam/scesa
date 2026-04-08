@@ -383,6 +383,7 @@
     </section>
 
     <!-- Contacto Section -->
+     
     <section id="contacto" aria-label="Contacto">
       <div class="contact-grid">
         <div>
@@ -416,46 +417,58 @@
           <p class="reveal" style="font-size: 1.175rem; color: var(--white); line-height: 1.7; margin-bottom: 0.5rem; margin-top: 2.5rem;">
             Compártanos los detalles de su proyecto. Nuestro equipo técnico se pondrá en contacto para realizar un levantamiento formal sin costo.
           </p>
-          <div class="contact-form reveal">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" id="nombre" class="form-input" placeholder="Su nombre completo" required>
-              </div>
-              <div class="form-group">
-                <label for="empresa" class="form-label">Empresa</label>
-                <input type="text" id="empresa" class="form-input" placeholder="Nombre de la empresa">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="telefono" class="form-label">Teléfono</label>
-                <input type="tel" id="telefono" class="form-input" placeholder="+52 222 000 0000" required>
-              </div>
-              <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" class="form-input" placeholder="correo@empresa.com" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="servicio" class="form-label">Servicio de Interés</label>
-              <select id="servicio" class="form-select">
-                <option value="">Seleccionar área...</option>
-                <option>Ingeniería Eléctrica de Potencia</option>
-                <option>Seguridad Electrónica y CCTV</option>
-                <option>Conectividad y Automatización</option>
-                <option>Infraestructura Física</option>
-                <option>Proyecto Integral</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="mensaje" class="form-label">Descripción del Proyecto</label>
-              <textarea id="mensaje" class="form-textarea" placeholder="Cuéntenos brevemente sobre sus requerimientos actuales..."></textarea>
-            </div>
-            <button class="btn btn-primary" style="width: 100%;" onclick="handleSubmit(event)">Enviar Solicitud</button>
-          </div>
-        </div>
+          
+            
+<div class="contact-form reveal">
+  <form action="https://formsubmit.co/elpocam@gmail.com" method="POST">
+    <!-- Redirigir a tu página de gracias -->
+    <input type="hidden" name="_next" value="https://elpocam.github.io/scesa/gracias.html">
+    <input type="hidden" name="_captcha" value="false">
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" name="name" class="form-input" placeholder="Su nombre completo" required>
       </div>
+      <div class="form-group">
+        <label for="empresa" class="form-label">Empresa</label>
+        <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nombre de la empresa">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="tel" id="telefono" name="phone" class="form-input" placeholder="+52 222 000 0000" required>
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="correo@empresa.com" required>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="servicio" class="form-label">Servicio de Interés</label>
+      <select id="servicio" name="servicio" class="form-select">
+        <option value="">Seleccionar área...</option>
+        <option>Ingeniería Eléctrica de Potencia</option>
+        <option>Seguridad Electrónica y CCTV</option>
+        <option>Conectividad y Automatización</option>
+        <option>Infraestructura Física</option>
+        <option>Proyecto Integral</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="mensaje" class="form-label">Descripción del Proyecto</label>
+      <textarea id="mensaje" name="mensaje" class="form-textarea" placeholder="Cuéntenos brevemente sobre sus requerimientos actuales..."></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
+  </form>
+</div>
+</div>
+         </div>
     </section>
   
     <!-- Catálogo de Cursos -->
