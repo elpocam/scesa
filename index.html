@@ -410,9 +410,8 @@
           
             
 <div class="contact-form reveal">
-  <form id="contactForm" action="https://formsubmit.co/scesaalbacarlos@gmail.com" method="POST">
+  <form id="contactForm">
     <!-- Redirigir a tu página de gracias -->
-    <input type="hidden" name="_next" value="https://elpocam.github.io/scesa/gracias.html">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_subject" value="Nuevo mensaje SCESA">
@@ -605,6 +604,13 @@
   </svg>
   <span class="whatsapp-tooltip">¿Necesitas cotización?</span>
 </a>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("service_x9hj0gd");
+})();
+</script>
 
 </body>
 </html>
