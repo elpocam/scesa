@@ -1,19 +1,3 @@
-// ================= FORMULARIO =================
-function handleSubmit(event) {
-  
-
-  const nombre   = document.getElementById('nombre');
-  const telefono = document.getElementById('telefono');
-  const email    = document.getElementById('email');
-
-  if (!nombre.value.trim())          { alert('Por favor, ingrese su nombre');   return; }
-  if (!telefono.value.trim())        { alert('Por favor, ingrese su teléfono'); return; }
-  if (!email.value.includes('@'))    { alert('Email no válido');                return; }
-
-  alert('¡Gracias! Te contactaremos pronto.');
-  document.querySelectorAll('.form-input, .form-select, .form-textarea')
-    .forEach(el => el.value = '');
-}
 
 
 // ================= MENÚ HAMBURGUESA =================
