@@ -1,6 +1,6 @@
 // ================= FORMULARIO =================
 function handleSubmit(event) {
-  event.preventDefault();
+  
 
   const nombre   = document.getElementById('nombre');
   const telefono = document.getElementById('telefono');
