@@ -258,21 +258,3 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   resetTimer();
 })();
 
-document.getElementById("contactForm")
-.addEventListener("submit", function(e){
-
-e.preventDefault();
-
-emailjs.sendForm(
-"service_x9hj0gd",
-"template_i2dg8v8",
-this
-).then(function(){
-
-window.location.href="https://elpocam.github.io/scesa/gracias.html";
-
-}, function(error){
-alert("Error al enviar");
-});
-
-});

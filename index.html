@@ -608,9 +608,30 @@
 
 <script>
 (function(){
-emailjs.init("service_x9hj0gd");
+emailjs.init("e3QuwUcq6uPOQJjnf");
 })();
 </script>
 
 </body>
+<script>
+document.getElementById("contactForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+emailjs.sendForm(
+"service_x9hj0gd",
+"template_i2dg8v8",
+this
+).then(()=>{
+
+window.location.href="https://elpocam.github.io/scesa/gracias.html";
+
+}).catch(()=>{
+alert("Error al enviar");
+});
+
+});
+</script>
+
 </html>
