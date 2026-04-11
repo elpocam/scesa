@@ -257,30 +257,3 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   goTo(0);
   resetTimer();
 })();
-// NUNCA hagas esto:
-// element.innerHTML = location.hash;  
-
-// En su lugar:
-function escapeHTML(str) {
-    return str.replace(/[&<>]/g, function(m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        return m;
-    });
-}
-
-// Uso seguro:
-const userInput = new URLSearchParams(location.search).get('nombre');
-document.getElementById('salida').textContent = escapeHTML(userInput);
-
-// Detecta si la consola está abierta (no es infalible pero ayuda)
-setInterval(() => {
-    const before = new Date();
-    debugger;
-    const after = new Date();
-    if (after - before > 100) {
-        // Posible consola abierta
-        document.body.innerHTML = "🔒 Acceso no autorizado";
-    }
-}, 2000);
