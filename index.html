@@ -6,7 +6,8 @@
   <meta name="description" content="SINPRO - Sistemas Integrales y Proyectos. Ingeniería de alto estándar en sistemas eléctricos, seguridad electrónica y automatización industrial en Puebla, México.">
   <meta name="theme-color" content="#000000">
   <title>S.C.E.S.A</title> 
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 
 
 
@@ -32,37 +33,69 @@
 
 </head>
 <body>
+
+  <!-- Fondo de Partículas -->
+<div id="particles-js"></div>
+
+
   <div class="progress-bar" id="progressBar"></div>
   <!-- Skip to content link para accesibilidad -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- Navegación -->
-  <nav class="navbar" aria-label="Navegación principal">
-    <a href="index.html">
-      <img src="img/logo@2x.png" alt="SCESA - Sistemas Integrales y Proyectos" class="logo">
+  <!-- NUEVO MENÚ GRADIENTE SUPERIOR -->
+<header class="main-header">
+  <div class="nav-container">
+    <!-- Logo mantenido a la izquierda -->
+    <a href="index.html" class="logo-container">
+      <img src="img/logo@2x.png" alt="SCESA" class="modern-logo">
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+
+    <!-- Menú de Píldoras Expandibles -->
+    <ul class="gradient-menu">
+      
+      <li class="menu-item" style="--g-from: #a955ff; --g-to: #ea51ff;">
+        <a href="index.html" class="menu-link">
+          <span class="menu-icon"><i class="fa-solid fa-house"></i></span>
+          <span class="menu-text">Inicio</span>
+        </a>
+      </li>
+
+      <li class="menu-item" style="--g-from: #0077ff; --g-to: #00d9ff;">
+        <a href="#servicios" class="menu-link">
+          <span class="menu-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+          <span class="menu-text">Servicios</span>
+        </a>
+      </li>
+
+      <li class="menu-item" style="--g-from: #FF9966; --g-to: #FF5E62;">
+        <a href="#clientes" class="menu-link">
+          <span class="menu-icon"><i class="fa-solid fa-handshake"></i></span>
+          <span class="menu-text">Clientes</span>
+        </a>
+      </li>
+
+      <li class="menu-item" style="--g-from: #80FF72; --g-to: #7EE8FA;">
+        <a href="filosofia.html" class="menu-link">
+          <span class="menu-icon"><i class="fa-solid fa-lightbulb"></i></span>
+          <span class="menu-text">Filosofía</span>
+        </a>
+      </li>
+
+      <li class="menu-item" style="--g-from: #ffa9c6; --g-to: #f434e2;">
+        <a href="#contacto" class="menu-link">
+          <span class="menu-icon"><i class="fa-solid fa-envelope"></i></span>
+          <span class="menu-text">Contacto</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</header>
+
+
+
+
   
-  </nav>
-
-  <!-- Overlay -->
-  <div class="nav-overlay" id="navOverlay"></div>
-
-  <!-- Panel lateral -->
-  <ul class="nav-menu" id="navMenu" role="menu">
-    <li><a href="#about"        class="nav-link">Nosotros</a></li>
-    <li><a href="#servicios"    class="nav-link">Servicios</a></li>
-    <li><a href="#clientes"     class="nav-link">Clientes</a></li>
-    <li><a href="#compromiso"   class="nav-link">Compromiso</a></li>
-    <li><a href="#galeria"      class="nav-link">Proyectos</a></li>
-    <li><a href="#videos"       class="nav-link">Videos</a></li>
-    <li><a href="#cursos"       class="nav-link">Cursos</a></li>
-    <li><a href="filosofia.html" class="nav-link">Filosofía</a></li>
-    <li><a href="#contacto"     class="nav-link btn-cta">Contacto</a></li>
-    <li class="nav-phone">Llámanos<a href="tel:2221578435">2221578435</a></li>
-  </ul>
  <!-- ===== CARRUSEL DE SERVICIOS ===== -->
     <section class="services-slider" aria-label="Galería de servicios">
 
@@ -130,6 +163,7 @@
 
         </div>
       </div>
+
   <!-- Hero Section -->
   <main id="main-content">
     <section id="hero" class="hero" aria-label="Presentación">
@@ -245,7 +279,7 @@
         <div class="service-card reveal">
           <div class="service-number">03</div>
           <h3 class="service-title">Conectividad y Automatización Industrial</h3>
-          <img src="slider/red2.png" alt="La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados" style="width:100%; height:auto; max-width:400px; margin:1rem 0;" />
+          <img src="slider/red2.jpeg" alt="La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados" style="width:100%; height:auto; max-width:400px; margin:1rem 0;" />
           <p class="service-desc">Despliegue de infraestructura de fibra óptica, redes de voz y datos, sistemas de automatización industrial para la optimización de procesos productivos.</p>
           <div class="service-tags">
             <span class="service-tag">Fibra Óptica</span>
@@ -574,41 +608,77 @@
 
       <h2 class="section-title reveal">CREACIÓN Y<br>VENTA DE<br>PÁGINAS WEB</h2>
 
-      <!-- El resto del contenido (proceso, paquetes, botones) va aquí -->
-      <!-- ... (pega el resto si ya lo tenías) -->
-    </section>
-      <div class="about-grid" style="max-width: 1100px; margin: 0 auto;">
+     <!-- SECCIÓN DESARROLLO WEB OPTIMIZADA -->
+<section id="desarrollo-web" class="desarrollo-web" aria-label="Creación y Venta de Páginas Web">
+    <div class="section-header-web" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+        <img src="img/scesaweb-logo.png" alt="ScesaWeb" style="max-width: 60px; filter: drop-shadow(0 0 10px var(--accent));">
+        <div class="section-tag reveal">07 · Desarrollo Digital</div>
+    </div>
+
+    <h2 class="section-title reveal">CREACIÓN Y<br>VENTA DE<br>PÁGINAS WEB</h2>
+
+    <div class="about-grid">
         <div class="about-text">
-          <p class="reveal">
-            En <strong>SCESA</strong> extendemos nuestra experiencia en sistemas integrales al mundo digital. Diseñamos y desarrollamos <strong>páginas web profesionales</strong>, modernas, responsivas y optimizadas para convertir visitantes en clientes.
-          </p>
-          <p class="reveal">
-            Ofrecemos <strong>creación a medida</strong> y <strong>venta de plantillas premium</strong> para todo tipo de proyectos: sitios corporativos, tiendas en línea, landing pages de alto impacto y portales institucionales. Cada desarrollo incluye integración con sistemas de automatización y seguridad que ya implementamos.
-          </p>
-          <p class="reveal" style="color: var(--accent); font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; letter-spacing: 1px; margin-top: .5rem;">
-            Diseño · Desarrollo · Hosting · Mantenimiento · SEO
-          </p>
+            <p class="reveal">
+                En <strong style="color:var(--accent)">SCESA</strong> extendemos nuestra experiencia en sistemas integrales al mundo digital. Diseñamos y desarrollamos <strong style="color:var(--white)">páginas web profesionales</strong>, modernas, responsivas y optimizadas para convertir visitantes en clientes.
+            </p>
+            <p class="reveal">
+                Ofrecemos <strong style="color:var(--white)">creación a medida</strong> y <strong style="color:var(--white)">venta de plantillas premium</strong> para todo tipo de proyectos: sitios corporativos, tiendas en línea y landing pages de alto impacto.
+            </p>
+            <p class="reveal" style="color: var(--accent); font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; letter-spacing: 1px; margin-top: 1rem;">
+                Diseño · Desarrollo · Hosting · Mantenimiento · SEO
+            </p>
         </div>
 
         <div class="about-features reveal">
-          <div class="feature-card">
-            <div class="feature-icon">🌐</div>
-            <h3 class="feature-title">Sitios Corporativos</h3>
-            <p class="feature-desc">Presencia digital impecable con diseño premium y velocidad de carga excepcional.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🛒</div>
-            <h3 class="feature-title">E-commerce</h3>
-            <p class="feature-desc">Tiendas en línea seguras, integradas con pagos y gestión de inventario.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📈</div>
-            <h3 class="feature-title">Landing Pages</h3>
-            <p class="feature-desc">Páginas de conversión optimizadas para campañas y generación de leads.</p>
-          </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Sitios Corporativos</h3>
+                <p class="feature-desc">Presencia digital impecable con diseño premium y velocidad de carga excepcional.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛒</div>
+                <h3 class="feature-title">E-commerce</h3>
+                <p class="feature-desc">Tiendas en línea seguras, integradas con pagos y gestión de inventario.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Landing Pages</h3>
+                <p class="feature-desc">Páginas de conversión optimizadas para campañas y generación de leads.</p>
+            </div>
         </div>
-      </div>
-  </section>
+    </div>
+
+    <div class="web-packages-container" style="margin-top: 5rem; text-align: center;">
+        <div class="section-tag reveal" style="justify-content: center; margin-bottom: 2rem;">Paquetes Disponibles</div>
+        <div class="about-features reveal" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div class="feature-card" style="border: 2px solid var(--accent); padding: 2.5rem 2rem;">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">Básico</h3>
+                <p class="feature-desc">Sitio institucional de 5-8 apartados • Diseño responsivo • Formulario de contacto • SEO básico.</p>
+                <div style="margin-top: 1.5rem; color: var(--accent); font-weight: 700; font-family: 'Barlow Condensed';">Ideal para PyMEs</div>
+            </div>
+            <div class="feature-card" style="border: 2px solid var(--accent); padding: 2.5rem 2rem;">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Profesional</h3>
+                <p class="feature-desc">Hasta 15 apartados • Blog/noticias • Integración WhatsApp • Galería y videos • SEO avanzado.</p>
+                <div style="margin-top: 1.5rem; color: var(--accent); font-weight: 700; font-family: 'Barlow Condensed';">Recomendado crecimiento</div>
+            </div>
+            <div class="feature-card" style="border: 2px solid var(--accent); padding: 2.5rem 2rem;">
+                <div class="feature-icon">⭐</div>
+                <h3 class="feature-title">Premium</h3>
+                <p class="feature-desc">Tienda completa • Pasarelas de pago • Panel admin • Integración sistemas SCESA.</p>
+                <div style="margin-top: 1.5rem; color: var(--accent); font-weight: 700; font-family: 'Barlow Condensed';">Alta exigencia</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-btns reveal" style="margin-top: 4rem; text-align: center; justify-content: center;">
+        <a href="#contacto" class="btn btn-primary">Solicitar Cotización Web</a>
+        <a href="#contacto" class="btn btn-outline">Agenda una llamada</a>
+    </div>
+</section>
+
 
       <!-- Detalles adicionales: Proceso y Paquetes -->
       <div style="margin-top: 4rem; max-width: 1100px; margin-left: auto; margin-right: auto;">
@@ -753,7 +823,65 @@ emailjs.init("MTu0EzFqScMNKyCbG");
 })();
 </script>
 
+<!-- Librería Particles.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+  /* Configuración de partículas basada en el componente de React */
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 120, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#00c8ff" }, // Tu color accent
+      "shape": { "type": "circle" },
+      "opacity": {
+        "value": 0.5,
+        "random": true,
+        "anim": { "enable": true, "speed": 1, "opacity_min": 0.2 }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": { "enable": true, "speed": 2, "size_min": 1 }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#00c8ff",
+        "opacity": 0.3,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "none",
+        "random": true,
+        "out_mode": "out"
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" },
+        "resize": true
+      },
+      "modes": {
+        "grab": { "distance": 200, "line_linked": { "opacity": 0.6 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
+
+
+
+
+
+
 </body>
+
+
 <script>
 document.getElementById("contactForm")
 .addEventListener("submit", function(e){

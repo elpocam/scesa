@@ -257,3 +257,4 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   goTo(0);
   resetTimer();
 })();
+
